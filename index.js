@@ -101,3 +101,61 @@ inquirer.prompt(
     groupMembers.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
     promptForEmployee();
 });
+
+function promptForEmployee() {
+    inquirer.prompt(
+        {
+            type: 'list',
+            name: 'role',
+            message: 'Please select employee role',
+            choices: ['Engineer', 'Intern', 'Finished'],
+            validate: roleSelected => {
+                if (roleSelected) {
+                    return true;
+                } else {
+                    console.log('You must select a role!')
+                    return false;
+                }
+            }
+          }).then((answers) => {
+              if (answers.role == "Engineer") {
+                promptForEngineer();
+              }
+              else if (answers.role == "Intern") {
+                promptForIntern();
+              }
+              else {
+                  for (var i = 0; i < groupMembers.length; i++) {
+                      if (groupMembers[i].getRole() == 'Manager') {
+                        console.log('Manager: ' + groupMembers[i].name + " role: " + groupMembers[i].getRole());
+                      }
+                      else if (groupMembers[i].getRole() == 'Engineer') {
+                        console.log('Engineer: ' + groupMembers[i].name + " role: " + groupMembers[i].getRole());
+                      }
+                      else {
+                        console.log('Intern: ' + groupMembers[i].name + " role: " + groupMembers[i].getRole());
+                      }
+                  }
+                var fileCreator = new CreateFile(groupMembers);
+                fileCreator.CreateHTMLPage('Called From', 'Index.js');
+              }
+          })
+}
+
+function promptForEngineer () {
+    inquirer.prompt(
+        engineerQuestions
+    ).then((answers) => {
+        groupMembers.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
+        promptForEmployee();
+    });
+}
+
+function promptForIntern() {
+    inquirer.prompt(
+        internQuestions
+    ).then((answers) => {
+        groupMembers.push(new Intern(answers.name, answers.id, answers.email, answers.school));
+        promptForEmployee();
+    });
+}

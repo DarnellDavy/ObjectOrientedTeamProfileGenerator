@@ -1,0 +1,30 @@
+{
+    "name": "ObjectOrientedTeamProfileGenerator",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+      "lib": "lib",
+      "test": "tests"
+    },
+    "scripts": {
+      "test": "jest"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DarnellDavy/ObjectOrientedTeamProfileGenerator"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/DarnellDavy/ObjectOrientedTeamProfileGenerator/issues"
+    },
+    "homepage": "https://github.com/DarnellDavy/ObjectOrientedTeamProfileGenerator/blob/main/README.md",
+    "dependencies": {
+      "inquirer": "^8.2.0"
+    },
+    "devDependencies": {
+      "jest": "^27.3.1"
+    }
+  }
+  
