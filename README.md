@@ -1,3 +1,9 @@
+Project Description
+
+The purpose of this project was to create a team profile generator in which a manager could quickly and easily enter basic information about employees they were tasked with managing.
+In addition to creating the team profile generator, we were also tasked with creating a suite of tests meant to ensure that the functions within each of the employee classes worked properly.
+
+
 Project Instructions:
 
 GIVEN a command-line application that accepts user input\
